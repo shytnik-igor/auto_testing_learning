@@ -5,7 +5,6 @@ import com.codeborne.selenide.Selenide
 import com.codeborne.selenide.selector.ByTagAndText
 
 class GoodsPage {
-
     val addToCartButton = Selenide.element(ByTagAndText("button", "В корзину"))
     val inCartLink = Selenide.element(ByTagAndText("a", "В корзине"))
 

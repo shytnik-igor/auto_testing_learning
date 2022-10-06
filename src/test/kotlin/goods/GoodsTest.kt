@@ -17,10 +17,15 @@ class GoodsTest {
     @Test
     fun notUsingDollars() {
         val goodsPage = GoodsPage()
+        //Проверить, что отображается кнопка “В корзину”
         goodsPage.assertAddToCartButtonVisible()
+        //Проверить, что не отображается кнопка “В корзине”
         goodsPage.assertInCartLinkInvisible()
+        //Нажать кнопку “В корзину”
         goodsPage.clickAddToCartButton()
+        //Проверить, что отображается кнопка “В корзине”
         goodsPage.assertInCartLinkVisible()
+        //Проверить, что не отображается кнопка “В корзину”
         goodsPage.assertAddToCartButtonInvisible()
     }
 }

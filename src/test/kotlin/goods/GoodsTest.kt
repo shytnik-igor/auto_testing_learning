@@ -1,11 +1,10 @@
 package goods
 
-import com.codeborne.selenide.Condition
 import com.codeborne.selenide.Selenide
-import com.codeborne.selenide.selector.ByTagAndText
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
+import page.GoodsPage
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class GoodsTest {
@@ -17,16 +16,16 @@ class GoodsTest {
 
     @Test
     fun notUsingDollars() {
-        // Найти кнопку "В корзину”
-        val addToCartButton = Selenide.element(ByTagAndText("button", "В корзину"))
-        addToCartButton.shouldBe(Condition.visible)
-        // Проверить, что не отображается кнопка “В корзине”
-        val inCartLink = Selenide.element(ByTagAndText("a", "В корзине"))
-        inCartLink.shouldNot(Condition.visible)
-        // Нажать кнопку “В корзину”
-        addToCartButton.click()
-        // Проверить, что кнопка изменилась на “В корзине”
-        addToCartButton.shouldNot(Condition.visible)
-        inCartLink.shouldBe(Condition.visible)
+        val goodsPage = GoodsPage()
+        //Проверить, что отображается кнопка “В корзину”
+        goodsPage.assertAddToCartButtonVisible()
+        //Проверить, что не отображается кнопка “В корзине”
+        goodsPage.assertInCartLinkInvisible()
+        //Нажать кнопку “В корзину”
+        goodsPage.clickAddToCartButton()
+        //Проверить, что отображается кнопка “В корзине”
+        goodsPage.assertInCartLinkVisible()
+        //Проверить, что не отображается кнопка “В корзину”
+        goodsPage.assertAddToCartButtonInvisible()
     }
 }

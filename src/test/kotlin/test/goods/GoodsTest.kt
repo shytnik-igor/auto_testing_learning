@@ -1,10 +1,10 @@
-package goods
+package test.goods
 
 import com.codeborne.selenide.Selenide
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
-import page.GoodsPage
+import page.goods.GoodsPage
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class GoodsTest {
